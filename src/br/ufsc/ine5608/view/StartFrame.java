@@ -69,14 +69,13 @@ public class StartFrame extends JFrame {
             cons.gridy = -2;
             spWonders = new JScrollPane(tbWonders);
             tbWonders.addMouseListener(tableManager);
-            container.add(spWonders, cons);
-        }
-
-        DefaultTableModel modelTdItens = new DefaultTableModel();
-        modelTdItens.addColumn("Jogador 1");
-        modelTdItens.addColumn("Jogador 2");
-        this.tbWonders.setModel(modelTdItens);
-        this.repaint();
+            DefaultTableModel modelPlayers = new DefaultTableModel();
+            modelPlayers.addColumn("Jogador 1");
+            modelPlayers.addColumn("Jogador 2");
+            this.tbWonders.setModel(modelPlayers);
+            this.repaint();
+            container.add(spWonders, cons);            
+        }       
 
         // Welcome label configuration
         {
