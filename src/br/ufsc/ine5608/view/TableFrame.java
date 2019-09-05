@@ -151,9 +151,9 @@ public class TableFrame extends JFrame {
         
      // Players itens table configuration
         {
-        	tbPlayersItens = new JTable();
-        	tbPlayersItens.setPreferredScrollableViewportSize(new Dimension(400, 200));
-        	tbPlayersItens.setFillsViewportHeight(true);
+            tbPlayersItens = new JTable();
+            tbPlayersItens.setPreferredScrollableViewportSize(new Dimension(400, 200));
+            tbPlayersItens.setFillsViewportHeight(true);
             GridBagConstraints cons = new GridBagConstraints();
             cons.fill = GridBagConstraints.HORIZONTAL;
             cons.ipady = 200;
