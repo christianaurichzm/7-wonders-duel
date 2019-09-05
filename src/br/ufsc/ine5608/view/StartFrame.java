@@ -104,11 +104,11 @@ public class StartFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void showScreen() {
+    public void showFrame() {
         this.setVisible(true);
     }
 
-    public void hideScreen() {
+    public void hideFrame() {
         this.setVisible(false);
     }
     

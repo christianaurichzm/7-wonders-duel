@@ -1,5 +1,6 @@
 package br.ufsc.ine5608.controller;
 
+import br.ufsc.ine5608.view.FinalFrame;
 import br.ufsc.ine5608.view.StartFrame;
 import br.ufsc.ine5608.view.TableFrame;
 
@@ -16,13 +17,18 @@ public class GeneralController {
         return singleGeneralCtrl;
     }
     
-    public void startScreen() {        
-        StartFrame.getInstance().showScreen();
+    public void startFrame() {        
+        StartFrame.getInstance().showFrame();
     }
     
     public void startGame() {   
-        StartFrame.getInstance().hideScreen();
-        TableFrame.getInstance().showScreen();
+        StartFrame.getInstance().hideFrame();
+        TableFrame.getInstance().showFrame();
+    }
+    
+    public void finalFrame() {
+    	TableFrame.getInstance().hideFrame();
+    	FinalFrame.getInstance().showFrame();
     }
     
 }
