@@ -32,7 +32,7 @@ public class TableFrame extends JFrame {
     
     public static TableFrame getInstance() {        
         if (tfInstance == null) {
-        	tfInstance = new TableFrame();
+          tfInstance = new TableFrame();
         }        
         return tfInstance;
     }
@@ -67,9 +67,9 @@ public class TableFrame extends JFrame {
         
         // Progress table configuration
         {
-        	tbProgress = new JTable();
-        	tbProgress.setPreferredScrollableViewportSize(new Dimension(400, 50));
-        	tbProgress.setFillsViewportHeight(true);
+            tbProgress = new JTable();
+            tbProgress.setPreferredScrollableViewportSize(new Dimension(400, 50));
+            tbProgress.setFillsViewportHeight(true);
             GridBagConstraints cons = new GridBagConstraints();
             cons.fill = GridBagConstraints.HORIZONTAL;
             cons.gridheight = 1;
@@ -93,9 +93,9 @@ public class TableFrame extends JFrame {
         
         // Conflict table configuration
         {
-        	tbConflict = new JTable();
-        	tbConflict.setPreferredScrollableViewportSize(new Dimension(400, 50));
-        	tbConflict.setFillsViewportHeight(true);
+            tbConflict = new JTable();
+            tbConflict.setPreferredScrollableViewportSize(new Dimension(400, 50));
+            tbConflict.setFillsViewportHeight(true);
             GridBagConstraints cons = new GridBagConstraints();
             cons.fill = GridBagConstraints.HORIZONTAL;            
             cons.gridheight = 1;
@@ -119,9 +119,9 @@ public class TableFrame extends JFrame {
         
         // Cardboard table configuration
         {
-        	tbCardBoard = new JTable();
-        	tbCardBoard.setPreferredScrollableViewportSize(new Dimension(400, 200));
-        	tbCardBoard.setFillsViewportHeight(true);
+            tbCardBoard = new JTable();
+            tbCardBoard.setPreferredScrollableViewportSize(new Dimension(400, 200));
+            tbCardBoard.setFillsViewportHeight(true);
             GridBagConstraints cons = new GridBagConstraints();
             cons.fill = GridBagConstraints.HORIZONTAL;
             cons.ipady = 200;
