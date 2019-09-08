@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class FinalFrame extends JFrame {
-	private static FinalFrame ffInstance = new FinalFrame();  
+	private static FinalFrame ffInstance;
 	private JLabel lbplayerOne;
 	private JLabel lbplayerTwo;
 	private JLabel lbwinnerPlayer;
@@ -35,7 +35,7 @@ public class FinalFrame extends JFrame {
         this.setVisible(false);
     }
     
-    public void screenConfiguration() {
+    private void screenConfiguration() {
     	Container container = getContentPane();
         container.setSize(400, 400);
         container.setLayout(new GridBagLayout());

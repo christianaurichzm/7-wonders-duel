@@ -27,7 +27,7 @@ public class StartFrame extends JFrame {
     private TableManager tableManager;
     private ButtonManager buttonManager;
     private int wonderCode;
-    private static StartFrame sfInstance = new StartFrame();
+    private static StartFrame sfInstance;
 
     public StartFrame() {
         super("7 Wonders Duel - Start");
@@ -42,7 +42,7 @@ public class StartFrame extends JFrame {
         return sfInstance;
     }
 
-    public void screenConfiguration() {
+    private void screenConfiguration() {
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
 

@@ -4,14 +4,21 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class TableFrame extends JFrame {
-     private static TableFrame tfInstance = new TableFrame();    
+import br.ufsc.ine5608.controller.GeneralController;
+
+public class BoardFrame extends JFrame {
+     private static BoardFrame tfInstance; 
+     private ButtonManager buttonManager;
      private JLabel lbProgress;
      private JLabel lbConflict;
      private JLabel lbCardBoard;
@@ -24,15 +31,19 @@ public class TableFrame extends JFrame {
      private JScrollPane spConflict;
      private JScrollPane spCardBoard;
      private JScrollPane spPlayersItens;
+     private JButton btBuild;
+     private JButton btDiscard;
+     private JButton btEndTurn;
     
-    public TableFrame() {
+    public BoardFrame() {
         super("7 Wonders Duel");
+        this.buttonManager = new ButtonManager();
         this.screenConfiguration();
     }
     
-    public static TableFrame getInstance() {        
+    public static BoardFrame getInstance() {        
         if (tfInstance == null) {
-          tfInstance = new TableFrame();
+        	tfInstance = new BoardFrame();
         }        
         return tfInstance;
     }
@@ -49,7 +60,7 @@ public class TableFrame extends JFrame {
 
     }
     
-    public void screenConfiguration() {
+    private void screenConfiguration() {
         Container container = getContentPane();
         container.setSize(1280, 720);
         container.setLayout(new GridBagLayout());
@@ -58,8 +69,7 @@ public class TableFrame extends JFrame {
         {
             lbProgress = new JLabel();
             lbProgress.setText("Progresso:");
-            GridBagConstraints cons = new GridBagConstraints();
-            cons.ipadx = 1280;            
+            GridBagConstraints cons = new GridBagConstraints();         
             cons.gridy = 0;
             cons.gridx = 0;
             container.add(lbProgress, cons);
@@ -67,11 +77,12 @@ public class TableFrame extends JFrame {
         
         // Progress table configuration
         {
-            tbProgress = new JTable();
-            tbProgress.setPreferredScrollableViewportSize(new Dimension(400, 50));
-            tbProgress.setFillsViewportHeight(true);
+        	tbProgress = new JTable();
+        	tbProgress.setPreferredScrollableViewportSize(new Dimension(400, 50));
+        	tbProgress.setFillsViewportHeight(true);
             GridBagConstraints cons = new GridBagConstraints();
             cons.fill = GridBagConstraints.HORIZONTAL;
+            cons.ipadx = 1280; 
             cons.gridheight = 1;
             cons.gridwidth = 1;
             cons.gridx = 0;
@@ -93,9 +104,9 @@ public class TableFrame extends JFrame {
         
         // Conflict table configuration
         {
-            tbConflict = new JTable();
-            tbConflict.setPreferredScrollableViewportSize(new Dimension(400, 50));
-            tbConflict.setFillsViewportHeight(true);
+        	tbConflict = new JTable();
+        	tbConflict.setPreferredScrollableViewportSize(new Dimension(400, 50));
+        	tbConflict.setFillsViewportHeight(true);
             GridBagConstraints cons = new GridBagConstraints();
             cons.fill = GridBagConstraints.HORIZONTAL;            
             cons.gridheight = 1;
@@ -119,9 +130,9 @@ public class TableFrame extends JFrame {
         
         // Cardboard table configuration
         {
-            tbCardBoard = new JTable();
-            tbCardBoard.setPreferredScrollableViewportSize(new Dimension(400, 200));
-            tbCardBoard.setFillsViewportHeight(true);
+        	tbCardBoard = new JTable();
+        	tbCardBoard.setPreferredScrollableViewportSize(new Dimension(400, 200));
+        	tbCardBoard.setFillsViewportHeight(true);
             GridBagConstraints cons = new GridBagConstraints();
             cons.fill = GridBagConstraints.HORIZONTAL;
             cons.ipady = 200;
@@ -167,9 +178,55 @@ public class TableFrame extends JFrame {
             container.add(spPlayersItens, cons);            
         }
         
+     // Start button configuration
+        {
+        	btBuild = new JButton();
+        	btBuild.setText("Construir");
+        	// btDraw.addActionListener(buttonManager);
+            GridBagConstraints cons = new GridBagConstraints();
+            cons.anchor = GridBagConstraints.LAST_LINE_START; 
+            cons.ipadx = 200;
+            cons.gridy = 9;
+            cons.gridx = 0;
+            container.add(btBuild, cons);
+        }
+        
+        {
+        	btDiscard = new JButton();
+        	btDiscard.setText("Descartar");
+        	// btDraw.addActionListener(buttonManager);
+            GridBagConstraints cons = new GridBagConstraints();
+            cons.anchor = GridBagConstraints.PAGE_END;
+            cons.ipadx = 200;
+            cons.gridy = 9;
+            cons.gridx = 0;
+            container.add(btDiscard, cons);
+        }
+        
+        {
+        	btEndTurn = new JButton();
+        	btEndTurn.setText("Finalizar turno");
+        	btEndTurn.addActionListener(buttonManager);
+            GridBagConstraints cons = new GridBagConstraints();
+            cons.anchor = GridBagConstraints.LAST_LINE_END;     
+            cons.ipadx = 200;
+            cons.gridy = 9;
+            cons.gridx = 0;
+            container.add(btEndTurn, cons);
+        }
+        
         this.setSize(1280, 720);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    
+    private class ButtonManager implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if(ae.getSource().equals(btEndTurn)) {
+                GeneralController.getInstance().finalFrame();
+            }
+        }        
     }
     
 }

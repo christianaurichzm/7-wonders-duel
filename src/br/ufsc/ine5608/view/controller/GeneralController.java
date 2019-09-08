@@ -2,7 +2,7 @@ package br.ufsc.ine5608.controller;
 
 import br.ufsc.ine5608.view.FinalFrame;
 import br.ufsc.ine5608.view.StartFrame;
-import br.ufsc.ine5608.view.TableFrame;
+import br.ufsc.ine5608.view.BoardFrame;
 
 public class GeneralController {
     private static GeneralController singleGeneralCtrl;    
@@ -23,11 +23,11 @@ public class GeneralController {
     
     public void startGame() {   
         StartFrame.getInstance().hideFrame();
-        TableFrame.getInstance().showFrame();
+        BoardFrame.getInstance().showFrame();
     }
     
     public void finalFrame() {
-    	TableFrame.getInstance().hideFrame();
+    	BoardFrame.getInstance().hideFrame();
     	FinalFrame.getInstance().showFrame();
     }
     
