@@ -77,9 +77,9 @@ public class BoardFrame extends JFrame {
         
         // Progress table configuration
         {
-        	tbProgress = new JTable();
-        	tbProgress.setPreferredScrollableViewportSize(new Dimension(400, 50));
-        	tbProgress.setFillsViewportHeight(true);
+            tbProgress = new JTable();
+            tbProgress.setPreferredScrollableViewportSize(new Dimension(400, 50));
+            tbProgress.setFillsViewportHeight(true);
             GridBagConstraints cons = new GridBagConstraints();
             cons.fill = GridBagConstraints.HORIZONTAL;
             cons.ipadx = 1280; 
@@ -104,9 +104,9 @@ public class BoardFrame extends JFrame {
         
         // Conflict table configuration
         {
-        	tbConflict = new JTable();
-        	tbConflict.setPreferredScrollableViewportSize(new Dimension(400, 50));
-        	tbConflict.setFillsViewportHeight(true);
+            tbConflict = new JTable();
+            tbConflict.setPreferredScrollableViewportSize(new Dimension(400, 50));
+            tbConflict.setFillsViewportHeight(true);
             GridBagConstraints cons = new GridBagConstraints();
             cons.fill = GridBagConstraints.HORIZONTAL;            
             cons.gridheight = 1;
@@ -130,9 +130,9 @@ public class BoardFrame extends JFrame {
         
         // Cardboard table configuration
         {
-        	tbCardBoard = new JTable();
-        	tbCardBoard.setPreferredScrollableViewportSize(new Dimension(400, 200));
-        	tbCardBoard.setFillsViewportHeight(true);
+            tbCardBoard = new JTable();
+            tbCardBoard.setPreferredScrollableViewportSize(new Dimension(400, 200));
+            tbCardBoard.setFillsViewportHeight(true);
             GridBagConstraints cons = new GridBagConstraints();
             cons.fill = GridBagConstraints.HORIZONTAL;
             cons.ipady = 200;
@@ -178,11 +178,11 @@ public class BoardFrame extends JFrame {
             container.add(spPlayersItens, cons);            
         }
         
-     // Start button configuration
+     // Build button configuration
         {
-        	btBuild = new JButton();
-        	btBuild.setText("Construir");
-        	// btDraw.addActionListener(buttonManager);
+            btBuild = new JButton();
+            btBuild.setText("Construir");
+            // btDraw.addActionListener(buttonManager);
             GridBagConstraints cons = new GridBagConstraints();
             cons.anchor = GridBagConstraints.LAST_LINE_START; 
             cons.ipadx = 200;
@@ -191,10 +191,11 @@ public class BoardFrame extends JFrame {
             container.add(btBuild, cons);
         }
         
+       // Discard button configuration
         {
-        	btDiscard = new JButton();
-        	btDiscard.setText("Descartar");
-        	// btDraw.addActionListener(buttonManager);
+            btDiscard = new JButton();
+            btDiscard.setText("Descartar");
+            // btDraw.addActionListener(buttonManager);
             GridBagConstraints cons = new GridBagConstraints();
             cons.anchor = GridBagConstraints.PAGE_END;
             cons.ipadx = 200;
@@ -203,10 +204,11 @@ public class BoardFrame extends JFrame {
             container.add(btDiscard, cons);
         }
         
+       // End turn button configuration         
         {
-        	btEndTurn = new JButton();
-        	btEndTurn.setText("Finalizar turno");
-        	btEndTurn.addActionListener(buttonManager);
+            btEndTurn = new JButton();
+            btEndTurn.setText("Finalizar turno");
+            btEndTurn.addActionListener(buttonManager);
             GridBagConstraints cons = new GridBagConstraints();
             cons.anchor = GridBagConstraints.LAST_LINE_END;     
             cons.ipadx = 200;
