@@ -27,7 +27,7 @@ public class StartFrame extends JFrame {
     private TableManager tableManager;
     private ButtonManager buttonManager;
     private int wonderCode;
-    private static StartFrame sfInstance;
+    private static StartFrame sfInstance;    
 
     public StartFrame() {
         super("7 Wonders Duel - Start");
@@ -68,10 +68,11 @@ public class StartFrame extends JFrame {
             cons.gridx = 0;
             cons.gridy = -2;
             spWonders = new JScrollPane(tbWonders);
-            tbWonders.addMouseListener(tableManager);
-            DefaultTableModel modelPlayers = new DefaultTableModel();
-            modelPlayers.addColumn("Jogador 1");
-            modelPlayers.addColumn("Jogador 2");
+            tbWonders.addMouseListener(tableManager);            
+            String[] players = {"Jogador 1", "Jogador 2"};
+            DefaultTableModel modelPlayers = new DefaultTableModel(players, 1);
+            modelPlayers.setValueAt("As Pirâmides", 0, 0);
+            modelPlayers.setValueAt("A Grande Biblioteca", 0, 1);
             this.tbWonders.setModel(modelPlayers);
             this.repaint();
             container.add(spWonders, cons);            
@@ -100,7 +101,6 @@ public class StartFrame extends JFrame {
 
         this.setSize(600, 400);
         this.setLocationRelativeTo(null);
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
@@ -111,11 +111,7 @@ public class StartFrame extends JFrame {
     public void hideFrame() {
         this.setVisible(false);
     }
-    
-    public void tableRefresh() {
-
-    }
-    
+        
     private class ButtonManager implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
